@@ -81,7 +81,7 @@ describe('MakerDeb', () => {
     packageJSON.version = '1.2.3-beta.4';
     const outPath = await (maker.make as any)({ dir, makeDir, appName, targetArch, packageJSON });
     expect(outPath).to.match(/1\.2\.3~beta\.4/);
-  })
+  });
 
   describe('debianArch', () => {
     it('should convert ia32 to i386', () => {
