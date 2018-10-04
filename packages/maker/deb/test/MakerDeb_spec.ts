@@ -27,9 +27,8 @@ describe('MakerDeb', () => {
 
   beforeEach(() => {
     ensureFileStub = stub().returns(Promise.resolve());
-    const eidPromise = Promise.resolve();
-    (eidPromise as any).transformVersion = require('electron-installer-debian').transformVersion;
-    eidStub = stub().returns(eidPromise);
+    eidStub = stub().resolves();
+    (eidStub as any).transformVersion = require('electron-installer-debian').transformVersion;
     config = {};
 
     MakerDeb = proxyquire.noPreserveCache().noCallThru().load('../src/MakerDeb', {
